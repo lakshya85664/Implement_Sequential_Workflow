@@ -1,0 +1,83 @@
+{
+    "employee": {
+        "employee_id": "EMP-1001",
+        "full_name": "Alex Morgan",
+        "email": "alex.morgan@example.com",
+        "department": "Engineering",
+        "manager_email": "manager@example.com",
+        "equipment_type": "Developer Laptop"
+    },
+    "run_id": "RUN-ONBOARD-1001",
+    "business_key": "EMP-1001",
+    "state": "running",
+    "task_sequence": [
+        {
+            "task_id": "TASK-01",
+            "name": "create_employee_account",
+            "sequence": 1,
+            "dependency": null,
+            "owner": "identity_team",
+            "status": "pending"
+        },
+        {
+            "task_id": "TASK-02",
+            "name": "assign_equipment",
+            "sequence": 2,
+            "dependency": "TASK-01",
+            "owner": "it_team",
+            "status": "pending"
+        },
+        {
+            "task_id": "TASK-03",
+            "name": "schedule_orientation",
+            "sequence": 3,
+            "dependency": "TASK-02",
+            "owner": "hr_team",
+            "status": "pending"
+        },
+        {
+            "task_id": "TASK-04",
+            "name": "notify_manager",
+            "sequence": 4,
+            "dependency": "TASK-03",
+            "owner": "notification_service",
+            "status": "pending"
+        }
+    ],
+    "events": [
+        {
+            "event_id": "69228159-30de-4333-945a-2c4d0b23adc0",
+            "run_id": "RUN-ONBOARD-1001",
+            "event_type": "workflow.state_changed",
+            "state": "running",
+            "timestamp": "2026-11-17T07:14:02.587325+00:00",
+            "details": {
+                "previous_state": "created",
+                "action": "start",
+                "new_state": "running"
+            }
+        },
+        {
+            "event_id": "5514d560-1c6e-4e35-b5c7-f546109870db",
+            "run_id": "RUN-ONBOARD-1001",
+            "event_type": "onboarding.workflow_started",
+            "state": "running",
+            "timestamp": "2026-11-17T07:14:02.587361+00:00",
+            "details": {
+                "employee_id": "EMP-1001",
+                "task_count": 4
+            }
+        }
+    ],
+    "traces": [
+        {
+            "trace_id": "9570d4e0-7487-40a2-b1ff-6f9032a260a6",
+            "run_id": "RUN-ONBOARD-1001",
+            "event": "workflow.state_changed",
+            "state": "running",
+            "outcome": "created -> running",
+            "next_action": "start",
+            "timestamp": "2026-11-17T07:14:02.587348+00:00"
+        }
+    ]
+}

@@ -1,0 +1,421 @@
+{
+    "run_id": "RUN-ONBOARD-2001",
+    "business_key": "EMP-2001",
+    "state": "completed",
+    "context": {
+        "employee": {
+            "employee_id": "EMP-2001",
+            "full_name": "Jordan Lee",
+            "email": "jordan.lee@example.com",
+            "department": "Engineering",
+            "manager_email": "manager@example.com",
+            "equipment_type": "Developer Laptop"
+        },
+        "account": {
+            "account_id": "ACC-EMP-2001",
+            "username": "jordan.lee",
+            "account_status": "created"
+        },
+        "equipment": {
+            "assignment_id": "EQ-EMP-2001",
+            "equipment_type": "Developer Laptop",
+            "assignment_status": "assigned",
+            "account_id": "ACC-EMP-2001"
+        },
+        "orientation": {
+            "orientation_id": "ORI-EMP-2001",
+            "schedule": "Next business day at 10:00",
+            "department": "Engineering",
+            "orientation_status": "scheduled"
+        },
+        "notification": {
+            "recipient": "manager@example.com",
+            "employee_id": "EMP-2001",
+            "notification_status": "sent",
+            "orientation_id": "ORI-EMP-2001"
+        }
+    },
+    "tasks": [
+        {
+            "task_id": "TASK-01",
+            "name": "create_employee_account",
+            "sequence": 1,
+            "dependency": null,
+            "owner": "identity_team",
+            "status": "completed",
+            "attempts": 1,
+            "result": {
+                "account_id": "ACC-EMP-2001",
+                "username": "jordan.lee",
+                "account_status": "created"
+            }
+        },
+        {
+            "task_id": "TASK-02",
+            "name": "assign_equipment",
+            "sequence": 2,
+            "dependency": "TASK-01",
+            "owner": "it_team",
+            "status": "completed",
+            "attempts": 1,
+            "result": {
+                "assignment_id": "EQ-EMP-2001",
+                "equipment_type": "Developer Laptop",
+                "assignment_status": "assigned",
+                "account_id": "ACC-EMP-2001"
+            }
+        },
+        {
+            "task_id": "TASK-03",
+            "name": "schedule_orientation",
+            "sequence": 3,
+            "dependency": "TASK-02",
+            "owner": "hr_team",
+            "status": "completed",
+            "attempts": 1,
+            "result": {
+                "orientation_id": "ORI-EMP-2001",
+                "schedule": "Next business day at 10:00",
+                "department": "Engineering",
+                "orientation_status": "scheduled"
+            }
+        },
+        {
+            "task_id": "TASK-04",
+            "name": "notify_manager",
+            "sequence": 4,
+            "dependency": "TASK-03",
+            "owner": "notification_service",
+            "status": "completed",
+            "attempts": 1,
+            "result": {
+                "recipient": "manager@example.com",
+                "employee_id": "EMP-2001",
+                "notification_status": "sent",
+                "orientation_id": "ORI-EMP-2001"
+            }
+        }
+    ],
+    "results": [
+        {
+            "task_id": "TASK-01",
+            "task_name": "create_employee_account",
+            "status": "completed",
+            "output": {
+                "account_id": "ACC-EMP-2001",
+                "username": "jordan.lee",
+                "account_status": "created"
+            },
+            "completed_at": "2026-11-17T07:14:02.565436+00:00"
+        },
+        {
+            "task_id": "TASK-02",
+            "task_name": "assign_equipment",
+            "status": "completed",
+            "output": {
+                "assignment_id": "EQ-EMP-2001",
+                "equipment_type": "Developer Laptop",
+                "assignment_status": "assigned",
+                "account_id": "ACC-EMP-2001"
+            },
+            "completed_at": "2026-11-17T07:14:02.565474+00:00"
+        },
+        {
+            "task_id": "TASK-03",
+            "task_name": "schedule_orientation",
+            "status": "completed",
+            "output": {
+                "orientation_id": "ORI-EMP-2001",
+                "schedule": "Next business day at 10:00",
+                "department": "Engineering",
+                "orientation_status": "scheduled"
+            },
+            "completed_at": "2026-11-17T07:14:02.565507+00:00"
+        },
+        {
+            "task_id": "TASK-04",
+            "task_name": "notify_manager",
+            "status": "completed",
+            "output": {
+                "recipient": "manager@example.com",
+                "employee_id": "EMP-2001",
+                "notification_status": "sent",
+                "orientation_id": "ORI-EMP-2001"
+            },
+            "completed_at": "2026-11-17T07:14:02.565537+00:00"
+        }
+    ],
+    "events": [
+        {
+            "event_id": "0ce5bf2d-95fc-4495-bda2-62d78f3b8c90",
+            "run_id": "RUN-ONBOARD-2001",
+            "event_type": "workflow.state_changed",
+            "state": "running",
+            "task_id": null,
+            "timestamp": "2026-11-17T07:14:02.565376+00:00",
+            "details": {
+                "previous_state": "created",
+                "action": "start",
+                "new_state": "running"
+            }
+        },
+        {
+            "event_id": "68363a90-b764-479f-8c35-a8709c5a17ed",
+            "run_id": "RUN-ONBOARD-2001",
+            "event_type": "onboarding.execution_started",
+            "state": "running",
+            "task_id": null,
+            "timestamp": "2026-11-17T07:14:02.565411+00:00",
+            "details": {
+                "employee_id": "EMP-2001",
+                "task_count": 4
+            }
+        },
+        {
+            "event_id": "f481dda4-95b0-491b-9e31-b4e892bffec0",
+            "run_id": "RUN-ONBOARD-2001",
+            "event_type": "task.started",
+            "state": "running",
+            "task_id": "TASK-01",
+            "timestamp": "2026-11-17T07:14:02.565422+00:00",
+            "details": {
+                "task_name": "create_employee_account",
+                "sequence": 1,
+                "owner": "identity_team"
+            }
+        },
+        {
+            "event_id": "076905e4-2440-4b95-9312-256c89ff8bbb",
+            "run_id": "RUN-ONBOARD-2001",
+            "event_type": "task.completed",
+            "state": "running",
+            "task_id": "TASK-01",
+            "timestamp": "2026-11-17T07:14:02.565445+00:00",
+            "details": {
+                "task_name": "create_employee_account",
+                "output": {
+                    "account_id": "ACC-EMP-2001",
+                    "username": "jordan.lee",
+                    "account_status": "created"
+                }
+            }
+        },
+        {
+            "event_id": "38650112-ef88-422d-893f-b5d887185a99",
+            "run_id": "RUN-ONBOARD-2001",
+            "event_type": "task.started",
+            "state": "running",
+            "task_id": "TASK-02",
+            "timestamp": "2026-11-17T07:14:02.565460+00:00",
+            "details": {
+                "task_name": "assign_equipment",
+                "sequence": 2,
+                "owner": "it_team"
+            }
+        },
+        {
+            "event_id": "55d78c3d-5165-4d38-9b90-31942ff67086",
+            "run_id": "RUN-ONBOARD-2001",
+            "event_type": "task.completed",
+            "state": "running",
+            "task_id": "TASK-02",
+            "timestamp": "2026-11-17T07:14:02.565481+00:00",
+            "details": {
+                "task_name": "assign_equipment",
+                "output": {
+                    "assignment_id": "EQ-EMP-2001",
+                    "equipment_type": "Developer Laptop",
+                    "assignment_status": "assigned",
+                    "account_id": "ACC-EMP-2001"
+                }
+            }
+        },
+        {
+            "event_id": "01cb220a-4a67-49e8-82e4-0498b0d51dee",
+            "run_id": "RUN-ONBOARD-2001",
+            "event_type": "task.started",
+            "state": "running",
+            "task_id": "TASK-03",
+            "timestamp": "2026-11-17T07:14:02.565495+00:00",
+            "details": {
+                "task_name": "schedule_orientation",
+                "sequence": 3,
+                "owner": "hr_team"
+            }
+        },
+        {
+            "event_id": "ae4eb85d-05b0-4172-9a6c-4aa76712d7ae",
+            "run_id": "RUN-ONBOARD-2001",
+            "event_type": "task.completed",
+            "state": "running",
+            "task_id": "TASK-03",
+            "timestamp": "2026-11-17T07:14:02.565513+00:00",
+            "details": {
+                "task_name": "schedule_orientation",
+                "output": {
+                    "orientation_id": "ORI-EMP-2001",
+                    "schedule": "Next business day at 10:00",
+                    "department": "Engineering",
+                    "orientation_status": "scheduled"
+                }
+            }
+        },
+        {
+            "event_id": "3c91dbd8-a6c8-4bf8-9628-c507e9ef43f8",
+            "run_id": "RUN-ONBOARD-2001",
+            "event_type": "task.started",
+            "state": "running",
+            "task_id": "TASK-04",
+            "timestamp": "2026-11-17T07:14:02.565526+00:00",
+            "details": {
+                "task_name": "notify_manager",
+                "sequence": 4,
+                "owner": "notification_service"
+            }
+        },
+        {
+            "event_id": "ebbe9957-e10f-4434-9707-a0dcd69ab5aa",
+            "run_id": "RUN-ONBOARD-2001",
+            "event_type": "task.completed",
+            "state": "running",
+            "task_id": "TASK-04",
+            "timestamp": "2026-11-17T07:14:02.565542+00:00",
+            "details": {
+                "task_name": "notify_manager",
+                "output": {
+                    "recipient": "manager@example.com",
+                    "employee_id": "EMP-2001",
+                    "notification_status": "sent",
+                    "orientation_id": "ORI-EMP-2001"
+                }
+            }
+        },
+        {
+            "event_id": "380d8626-d9b0-4a71-9c9c-d0ee278f3820",
+            "run_id": "RUN-ONBOARD-2001",
+            "event_type": "workflow.state_changed",
+            "state": "completed",
+            "task_id": null,
+            "timestamp": "2026-11-17T07:14:02.565559+00:00",
+            "details": {
+                "previous_state": "running",
+                "action": "complete",
+                "new_state": "completed"
+            }
+        },
+        {
+            "event_id": "1a35ae00-019c-490f-8c14-5e0e878a1fa6",
+            "run_id": "RUN-ONBOARD-2001",
+            "event_type": "onboarding.execution_completed",
+            "state": "completed",
+            "task_id": null,
+            "timestamp": "2026-11-17T07:14:02.565573+00:00",
+            "details": {
+                "employee_id": "EMP-2001",
+                "completed_tasks": 4
+            }
+        }
+    ],
+    "traces": [
+        {
+            "trace_id": "81a7555b-b0fc-4d52-b008-ee7f88acc5b3",
+            "run_id": "RUN-ONBOARD-2001",
+            "task_id": null,
+            "event": "workflow.state_changed",
+            "state": "running",
+            "timestamp": "2026-11-17T07:14:02.565392+00:00",
+            "outcome": "created -> running",
+            "next_action": "start"
+        },
+        {
+            "trace_id": "d724b70f-6c7a-4749-834c-83e6fea7519c",
+            "run_id": "RUN-ONBOARD-2001",
+            "task_id": "TASK-01",
+            "event": "task.started",
+            "state": "running",
+            "timestamp": "2026-11-17T07:14:02.565430+00:00",
+            "outcome": "started",
+            "next_action": "create_employee_account"
+        },
+        {
+            "trace_id": "ab191964-db1b-4f56-859f-a49df5015f85",
+            "run_id": "RUN-ONBOARD-2001",
+            "task_id": "TASK-01",
+            "event": "task.completed",
+            "state": "running",
+            "timestamp": "2026-11-17T07:14:02.565453+00:00",
+            "outcome": "completed",
+            "next_action": "next_task"
+        },
+        {
+            "trace_id": "fa9e2ebc-b695-4bfc-85ed-50960a2d130a",
+            "run_id": "RUN-ONBOARD-2001",
+            "task_id": "TASK-02",
+            "event": "task.started",
+            "state": "running",
+            "timestamp": "2026-11-17T07:14:02.565467+00:00",
+            "outcome": "started",
+            "next_action": "assign_equipment"
+        },
+        {
+            "trace_id": "b75637ee-b726-4c75-8f64-90539e802ac7",
+            "run_id": "RUN-ONBOARD-2001",
+            "task_id": "TASK-02",
+            "event": "task.completed",
+            "state": "running",
+            "timestamp": "2026-11-17T07:14:02.565487+00:00",
+            "outcome": "completed",
+            "next_action": "next_task"
+        },
+        {
+            "trace_id": "03fabc34-77f5-479b-84c7-8390f9c8ce57",
+            "run_id": "RUN-ONBOARD-2001",
+            "task_id": "TASK-03",
+            "event": "task.started",
+            "state": "running",
+            "timestamp": "2026-11-17T07:14:02.565502+00:00",
+            "outcome": "started",
+            "next_action": "schedule_orientation"
+        },
+        {
+            "trace_id": "3460fdc4-1510-4037-8dcc-23063f0dc515",
+            "run_id": "RUN-ONBOARD-2001",
+            "task_id": "TASK-03",
+            "event": "task.completed",
+            "state": "running",
+            "timestamp": "2026-11-17T07:14:02.565520+00:00",
+            "outcome": "completed",
+            "next_action": "next_task"
+        },
+        {
+            "trace_id": "5d740fcb-0721-4cea-b450-7eec35439b60",
+            "run_id": "RUN-ONBOARD-2001",
+            "task_id": "TASK-04",
+            "event": "task.started",
+            "state": "running",
+            "timestamp": "2026-11-17T07:14:02.565532+00:00",
+            "outcome": "started",
+            "next_action": "notify_manager"
+        },
+        {
+            "trace_id": "2afaa360-d02d-4b81-9a69-97f5fb9e0ffe",
+            "run_id": "RUN-ONBOARD-2001",
+            "task_id": "TASK-04",
+            "event": "task.completed",
+            "state": "running",
+            "timestamp": "2026-11-17T07:14:02.565549+00:00",
+            "outcome": "completed",
+            "next_action": "complete_workflow"
+        },
+        {
+            "trace_id": "3d5390da-9163-477b-bfd1-6dcd379ca377",
+            "run_id": "RUN-ONBOARD-2001",
+            "task_id": null,
+            "event": "workflow.state_changed",
+            "state": "completed",
+            "timestamp": "2026-11-17T07:14:02.565567+00:00",
+            "outcome": "running -> completed",
+            "next_action": "complete"
+        }
+    ]
+}

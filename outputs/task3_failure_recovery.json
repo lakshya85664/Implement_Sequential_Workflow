@@ -1,0 +1,61 @@
+{
+    "recovery": {
+        "result": {
+            "status": "success",
+            "reference": "ACCOUNT-RECOVERED"
+        },
+        "dependency_calls": 3,
+        "retry_trace": [
+            {
+                "attempt": 1,
+                "failure_type": "timeout",
+                "error": "First attempt timed out",
+                "retryable": true,
+                "backoff_seconds": 1.0,
+                "next_action": "retry"
+            },
+            {
+                "attempt": 2,
+                "failure_type": "transient",
+                "error": "Temporary service unavailable",
+                "retryable": true,
+                "backoff_seconds": 2.0,
+                "next_action": "retry"
+            }
+        ]
+    },
+    "idempotency": {
+        "first_result": {
+            "account_id": "ACC-EMP-3001",
+            "status": "created",
+            "idempotent_replay": false
+        },
+        "replay_result": {
+            "account_id": "ACC-EMP-3001",
+            "status": "created",
+            "idempotent_replay": true
+        },
+        "side_effect_count": 1,
+        "duplicate_prevented": true
+    },
+    "failure_classification": {
+        "permanent": {
+            "failure_type": "permanent",
+            "retryable": false,
+            "next_action": "operator_review",
+            "reason": "Permanent dependency failure; automatic retry is unsafe"
+        },
+        "malformed": {
+            "failure_type": "malformed",
+            "retryable": false,
+            "next_action": "quarantine_response",
+            "reason": "Dependency returned an invalid response"
+        },
+        "unknown": {
+            "failure_type": "unknown",
+            "retryable": false,
+            "next_action": "operator_review",
+            "reason": "Unclassified error; automatic retry is disabled"
+        }
+    }
+}

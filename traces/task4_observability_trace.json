@@ -1,0 +1,110 @@
+[
+    {
+        "timestamp": "2026-11-17T07:05:55.580713+00:00",
+        "run_id": "RUN-TASK4-001",
+        "task_id": "TASK-01",
+        "service": "identity",
+        "outcome": "success",
+        "duration_ms": 0.005,
+        "correlation_id": "CORR-TASK-01",
+        "details": {
+            "action": "create_account",
+            "request": {
+                "employee_id": "EMP-4001",
+                "department": "Engineering"
+            },
+            "response": {
+                "success": true,
+                "service": "identity",
+                "action": "create_account",
+                "data": {
+                    "employee_id": "EMP-4001",
+                    "result_id": "CREATE_ACCOUNT-EMP-4001",
+                    "status": "completed"
+                },
+                "error": null
+            }
+        }
+    },
+    {
+        "timestamp": "2026-11-17T07:05:55.580777+00:00",
+        "run_id": "RUN-TASK4-001",
+        "task_id": "TASK-02",
+        "service": "equipment",
+        "outcome": "success",
+        "duration_ms": 0.003,
+        "correlation_id": "CORR-TASK-02",
+        "details": {
+            "action": "assign_equipment",
+            "request": {
+                "employee_id": "EMP-4001",
+                "department": "Engineering"
+            },
+            "response": {
+                "success": true,
+                "service": "equipment",
+                "action": "assign_equipment",
+                "data": {
+                    "employee_id": "EMP-4001",
+                    "result_id": "ASSIGN_EQUIPMENT-EMP-4001",
+                    "status": "completed"
+                },
+                "error": null
+            }
+        }
+    },
+    {
+        "timestamp": "2026-11-17T07:05:55.580811+00:00",
+        "run_id": "RUN-TASK4-001",
+        "task_id": "TASK-03",
+        "service": "hr",
+        "outcome": "success",
+        "duration_ms": 0.002,
+        "correlation_id": "CORR-TASK-03",
+        "details": {
+            "action": "schedule_orientation",
+            "request": {
+                "employee_id": "EMP-4001",
+                "department": "Engineering"
+            },
+            "response": {
+                "success": true,
+                "service": "hr",
+                "action": "schedule_orientation",
+                "data": {
+                    "employee_id": "EMP-4001",
+                    "result_id": "SCHEDULE_ORIENTATION-EMP-4001",
+                    "status": "completed"
+                },
+                "error": null
+            }
+        }
+    },
+    {
+        "timestamp": "2026-11-17T07:05:55.580834+00:00",
+        "run_id": "RUN-TASK4-001",
+        "task_id": "TASK-04",
+        "service": "notification",
+        "outcome": "success",
+        "duration_ms": 0.002,
+        "correlation_id": "CORR-TASK-04",
+        "details": {
+            "action": "notify_manager",
+            "request": {
+                "employee_id": "EMP-4001",
+                "department": "Engineering"
+            },
+            "response": {
+                "success": true,
+                "service": "notification",
+                "action": "notify_manager",
+                "data": {
+                    "employee_id": "EMP-4001",
+                    "result_id": "NOTIFY_MANAGER-EMP-4001",
+                    "status": "completed"
+                },
+                "error": null
+            }
+        }
+    }
+]

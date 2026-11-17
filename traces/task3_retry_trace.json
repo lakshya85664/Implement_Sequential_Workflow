@@ -1,0 +1,18 @@
+[
+    {
+        "attempt": 1,
+        "failure_type": "timeout",
+        "error": "First attempt timed out",
+        "retryable": true,
+        "backoff_seconds": 1.0,
+        "next_action": "retry"
+    },
+    {
+        "attempt": 2,
+        "failure_type": "transient",
+        "error": "Temporary service unavailable",
+        "retryable": true,
+        "backoff_seconds": 2.0,
+        "next_action": "retry"
+    }
+]

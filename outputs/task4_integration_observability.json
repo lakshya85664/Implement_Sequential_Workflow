@@ -1,0 +1,74 @@
+{
+    "task": "Task 4 - Integration Boundary and Observability",
+    "run_id": "RUN-TASK4-001",
+    "employee_id": "EMP-4001",
+    "workflow_status": "completed",
+    "integration_design": {
+        "adapter_contract": "ServiceAdapter Protocol",
+        "injection_enabled": true,
+        "external_services": [
+            "identity",
+            "equipment",
+            "hr",
+            "notification"
+        ],
+        "implementation": "Fake adapters for demonstration"
+    },
+    "service_results": [
+        {
+            "success": true,
+            "service": "identity",
+            "action": "create_account",
+            "data": {
+                "employee_id": "EMP-4001",
+                "result_id": "CREATE_ACCOUNT-EMP-4001",
+                "status": "completed"
+            },
+            "error": null
+        },
+        {
+            "success": true,
+            "service": "equipment",
+            "action": "assign_equipment",
+            "data": {
+                "employee_id": "EMP-4001",
+                "result_id": "ASSIGN_EQUIPMENT-EMP-4001",
+                "status": "completed"
+            },
+            "error": null
+        },
+        {
+            "success": true,
+            "service": "hr",
+            "action": "schedule_orientation",
+            "data": {
+                "employee_id": "EMP-4001",
+                "result_id": "SCHEDULE_ORIENTATION-EMP-4001",
+                "status": "completed"
+            },
+            "error": null
+        },
+        {
+            "success": true,
+            "service": "notification",
+            "action": "notify_manager",
+            "data": {
+                "employee_id": "EMP-4001",
+                "result_id": "NOTIFY_MANAGER-EMP-4001",
+                "status": "completed"
+            },
+            "error": null
+        }
+    ],
+    "metrics": {
+        "workflow_starts": 1,
+        "workflow_completions": 1,
+        "workflow_failures": 0,
+        "task_successes": 4,
+        "task_failures": 0,
+        "retries": 0,
+        "total_latency_ms": 0.013
+    },
+    "trace_event_count": 4,
+    "trace_file": "traces\\task4_observability_trace.json"
+}
